@@ -9,6 +9,9 @@ import UIKit
 
 class PersonDetailViewController: UIViewController {
 
+    // MARK: -Properties
+    var person: Person?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -90,7 +90,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="VGg-qJ-c7i" style="IBUITableViewCellStyleDefault" id="4bT-UA-j4N">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="personCell" textLabel="VGg-qJ-c7i" style="IBUITableViewCellStyleDefault" id="4bT-UA-j4N">
                                 <rect key="frame" x="0.0" y="88.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4bT-UA-j4N" id="4kR-sM-vd4">
@@ -107,7 +107,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Fxb-tu-klj" kind="show" identifier="toDetailVC" id="IEw-q6-B9i"/>
+                                    <segue destination="Fxb-tu-klj" kind="show" identifier="toDetailVC" id="bWf-cT-3XK"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -119,14 +119,17 @@
                     <navigationItem key="navigationItem" id="xgG-zb-cTF">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Ceq-ex-qAD">
                             <connections>
-                                <segue destination="Fxb-tu-klj" kind="show" id="S9y-2k-RwY"/>
+                                <action selector="addButtonTapped:" destination="onK-g0-nW9" id="mm7-IO-5uK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="groupnameTextFIeld" destination="IHO-Cw-b0a" id="1g6-wc-BY3"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BOE-O4-Tq5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749" y="143"/>
+            <point key="canvasLocation" x="717" y="143"/>
         </scene>
         <!--Person Detail View Controller-->
         <scene sceneID="Z6k-Zu-yfn">
@@ -135,10 +138,34 @@
                     <view key="view" contentMode="scaleToFill" id="hTg-gg-uyV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qpd-nF-BYg">
+                                <rect key="frame" x="8" y="96" width="398" height="76"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I5t-2A-Zx8">
+                                        <rect key="frame" x="0.0" y="0.0" width="398" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HR0-FB-e9O">
+                                        <rect key="frame" x="0.0" y="42" width="398" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="g4P-6u-hvJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Qpd-nF-BYg" firstAttribute="leading" secondItem="g4P-6u-hvJ" secondAttribute="leading" constant="8" id="jbh-Wn-z6B"/>
+                            <constraint firstItem="g4P-6u-hvJ" firstAttribute="trailing" secondItem="Qpd-nF-BYg" secondAttribute="trailing" constant="8" id="xX9-HB-sCd"/>
+                            <constraint firstItem="Qpd-nF-BYg" firstAttribute="top" secondItem="g4P-6u-hvJ" secondAttribute="top" constant="8" id="z9X-RT-kdf"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="aFL-IA-gMm"/>
+                    <navigationItem key="navigationItem" id="aFL-IA-gMm">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="lJ6-AX-KvH"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hT-lp-7MQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -161,9 +188,6 @@
             <point key="canvasLocation" x="-896" y="143"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="IEw-q6-B9i"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

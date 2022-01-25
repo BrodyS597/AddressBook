@@ -26,9 +26,8 @@ class GroupController {
         saveContactsToDisk()
     }
     
-    func updateGroup(group: Group, name: String, people: [Person]) {
+    func updateGroup(group: Group, name: String) {
         group.name = name
-        group.people = people
         saveContactsToDisk()
     }
     
