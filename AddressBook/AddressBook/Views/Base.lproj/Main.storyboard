@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="gUV-37-OpW" detailTextLabel="Ypq-i4-KEE" style="IBUITableViewCellStyleValue1" id="G3t-oL-3C3">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="groupCell" textLabel="gUV-37-OpW" detailTextLabel="Ypq-i4-KEE" style="IBUITableViewCellStyleValue1" id="G3t-oL-3C3">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G3t-oL-3C3" id="NtX-sQ-CnR">
@@ -41,7 +41,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="onK-g0-nW9" kind="show" id="0na-uV-FTP"/>
+                                    <segue destination="onK-g0-nW9" kind="show" identifier="toPeopleController" id="0na-uV-FTP"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -51,17 +51,22 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Groups" id="K4v-sf-7o3">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="q39-4u-eGq"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="q39-4u-eGq">
+                            <connections>
+                                <action selector="addGroupButtontapped:" destination="dxj-DN-QJK" id="tHD-oc-sf3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CPQ-Nc-jO8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="dxj-DN-QJK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-6" y="143"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Person List Table View Controller-->
         <scene sceneID="hf4-I2-QQ7">
             <objects>
-                <tableViewController id="onK-g0-nW9" sceneMemberID="viewController">
+                <tableViewController id="onK-g0-nW9" customClass="PersonListTableViewController" customModule="AddressBook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="PFw-dV-dPz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,6 +106,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Fxb-tu-klj" kind="show" identifier="toDetailVC" id="IEw-q6-B9i"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -109,23 +117,28 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="xgG-zb-cTF">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Ceq-ex-qAD"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Ceq-ex-qAD">
+                            <connections>
+                                <segue destination="Fxb-tu-klj" kind="show" id="S9y-2k-RwY"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BOE-O4-Tq5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="749" y="143"/>
         </scene>
-        <!--View Controller-->
+        <!--Person Detail View Controller-->
         <scene sceneID="Z6k-Zu-yfn">
             <objects>
-                <viewController id="Fxb-tu-klj" sceneMemberID="viewController">
+                <viewController id="Fxb-tu-klj" customClass="PersonDetailViewController" customModule="AddressBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hTg-gg-uyV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="g4P-6u-hvJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="aFL-IA-gMm"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hT-lp-7MQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -148,6 +161,9 @@
             <point key="canvasLocation" x="-896" y="143"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="IEw-q6-B9i"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
