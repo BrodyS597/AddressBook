@@ -11,7 +11,7 @@
         <!--Groups-->
         <scene sceneID="L1F-YL-OHh">
             <objects>
-                <tableViewController id="fcE-Z4-UpJ" sceneMemberID="viewController">
+                <tableViewController id="fcE-Z4-UpJ" customClass="GroupListTableViewController" customModule="AddressBook" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="erP-e1-BrP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -53,13 +53,12 @@
                     <navigationItem key="navigationItem" title="Groups" id="K4v-sf-7o3">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="q39-4u-eGq">
                             <connections>
-                                <action selector="addGroupButtontapped:" destination="dxj-DN-QJK" id="tHD-oc-sf3"/>
+                                <action selector="addGroupButtontapped:" destination="fcE-Z4-UpJ" id="L3h-k8-MP2"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CPQ-Nc-jO8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="dxj-DN-QJK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-6" y="143"/>
         </scene>

@@ -22,6 +22,7 @@ class PersonListTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+        groupnameTextFIeld.text = group?.name
     }
     
     override func viewWillDisappear(_ animated: Bool) {
