@@ -163,8 +163,17 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aFL-IA-gMm">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="lJ6-AX-KvH"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="lJ6-AX-KvH">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="Fxb-tu-klj" id="057-rK-OEr"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addressTextField" destination="HR0-FB-e9O" id="4Yu-M4-ULc"/>
+                        <outlet property="nameTextField" destination="I5t-2A-Zx8" id="SOY-m7-QOC"/>
+                        <outlet property="saveButton" destination="lJ6-AX-KvH" id="dCL-dW-gwI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hT-lp-7MQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
