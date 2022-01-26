@@ -55,7 +55,7 @@ class PersonListTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "personCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "personCell", for: indexPath) as? PersonTableViewCell else { return UITableViewCell()}
         
         // Configure the cell...
         //You need to get the person from the array inorder to identify and display the (name) value
@@ -63,7 +63,10 @@ class PersonListTableViewController: UITableViewController {
         let person = group?.people[indexPath.row]
         
         // setting the cell to the "textLabel"'s text value to the value of the (optional) person's name
-        cell.textLabel?.text = person?.name
+    
+        cell.delegate = self
+        
+        
         return cell
     }
     
@@ -102,3 +105,14 @@ class PersonListTableViewController: UITableViewController {
         
     }
 } // End of class
+
+extension PersonListTableViewController: PersonTableViewCellDelegate {
+    func toggleFavoriteButtonWasTapped(for cell: PersonTableViewCell) {
+        guard let person = cell.person else { return }
+        PersonController.toggleIsFavorite(person: person)
+        tableView.reloadData()
+        
+    }
+    
+    
+}
