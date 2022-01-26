@@ -108,26 +108,29 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="personCell" id="4bT-UA-j4N">
-                                <rect key="frame" x="0.0" y="130.5" width="414" height="47.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="personCell" id="4bT-UA-j4N" customClass="PersonTableViewCell" customModule="AddressBook" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="130.5" width="414" height="66.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4bT-UA-j4N" id="4kR-sM-vd4">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="47.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="66.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EMc-aj-YGy">
-                                            <rect key="frame" x="8" y="8" width="398" height="31.5"/>
+                                            <rect key="frame" x="8" y="8" width="398" height="50.5"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zva-Fl-toB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="41.5" height="31.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zva-Fl-toB">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7I2-Rn-Q6k">
-                                                    <rect key="frame" x="351" y="0.0" width="47" height="31.5"/>
+                                                    <rect key="frame" x="351" y="0.0" width="47" height="50.5"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="star.fill" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="toggleFavoriteButtonTapped:" destination="4bT-UA-j4N" eventType="touchUpInside" id="LdZ-AF-IWJ"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -140,6 +143,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="favoriteButton" destination="7I2-Rn-Q6k" id="Q9t-vQ-qlj"/>
+                                    <outlet property="personLabeltext" destination="Zva-Fl-toB" id="a4a-6X-xZE"/>
                                     <segue destination="Fxb-tu-klj" kind="show" identifier="toDetailVC" id="bWf-cT-3XK"/>
                                 </connections>
                             </tableViewCell>
@@ -199,11 +204,14 @@
                     <navigationItem key="navigationItem" id="aFL-IA-gMm">
                         <rightBarButtonItems>
                             <barButtonItem style="plain" id="axn-NI-yYl">
-                                <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="xKF-2G-Jhu">
-                                    <rect key="frame" x="-33" y="-15" width="92" height="31"/>
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="xKF-2G-Jhu">
+                                    <rect key="frame" x="302" y="5" width="92" height="34"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="star.fill" catalog="system"/>
+                                    <connections>
+                                        <action selector="favoriteButtonTapped:" destination="Fxb-tu-klj" eventType="touchUpInside" id="Y09-6s-Qsh"/>
+                                    </connections>
                                 </button>
                             </barButtonItem>
                             <barButtonItem style="plain" systemItem="save" id="lJ6-AX-KvH">
@@ -215,6 +223,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addressTextField" destination="HR0-FB-e9O" id="4Yu-M4-ULc"/>
+                        <outlet property="favoriteButton" destination="xKF-2G-Jhu" id="cxO-V4-y21"/>
                         <outlet property="nameTextField" destination="I5t-2A-Zx8" id="SOY-m7-QOC"/>
                         <outlet property="saveButton" destination="lJ6-AX-KvH" id="dCL-dW-gwI"/>
                     </connections>

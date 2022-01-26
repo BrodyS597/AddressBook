@@ -9,6 +9,7 @@ import Foundation
 
 class PersonController {
     
+    
     // MARK: - CRUD FUNCS
     
     static func createPerson(name: String = "New Contact", address: String = "", group: Group) {
@@ -16,6 +17,7 @@ class PersonController {
         group.people.append(person)
         
         //TODO: Save to persistent
+        GroupController.sharedInstance.saveContactsToDisk()
     }
     
     static func deletePerson(person: Person, group: Group) {
@@ -23,6 +25,7 @@ class PersonController {
         group.people.remove(at: index)
         
         //TODO: Save to persistent
+        GroupController.sharedInstance.saveContactsToDisk()
     }
     
     static func updatePerson(person: Person, name: String, address: String) {
@@ -30,6 +33,12 @@ class PersonController {
         person.name = name
         
         //TODO: Save to persistent
+        GroupController.sharedInstance.saveContactsToDisk()
+    }
+    
+    static func toggleIsFavorite(person: Person) {
+        person.isFavorite.toggle()
+        GroupController.sharedInstance.saveContactsToDisk()
     }
     
 }
