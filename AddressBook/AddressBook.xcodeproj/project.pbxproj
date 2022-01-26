@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D617A1127A0CF830028164D /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D617A1027A0CF830028164D /* PersonTableViewCell.swift */; };
 		6D8B1CD3279F5CFC00DBD4B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B1CD2279F5CFC00DBD4B9 /* AppDelegate.swift */; };
 		6D8B1CD5279F5CFC00DBD4B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8B1CD4279F5CFC00DBD4B9 /* SceneDelegate.swift */; };
 		6D8B1CDA279F5CFC00DBD4B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D8B1CD8279F5CFC00DBD4B9 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6D617A1027A0CF830028164D /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 		6D8B1CCF279F5CFC00DBD4B9 /* AddressBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AddressBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D8B1CD2279F5CFC00DBD4B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D8B1CD4279F5CFC00DBD4B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D617A0F27A0CF220028164D /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				6D617A1027A0CF830028164D /* PersonTableViewCell.swift */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
 		6D8B1CC6279F5CFC00DBD4B9 = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +136,7 @@
 		6D8B1CF4279F679D00DBD4B9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6D617A0F27A0CF220028164D /* CustomCells */,
 				6D8B1CF5279F680100DBD4B9 /* GroupListTableViewController.swift */,
 				6D8B1CF7279F682400DBD4B9 /* PersonListTableViewController.swift */,
 				6D8B1CF9279F684C00DBD4B9 /* PersonDetailViewController.swift */,
@@ -212,6 +223,7 @@
 				6D8B1CFC279F689D00DBD4B9 /* PersonController.swift in Sources */,
 				6D8B1CED279F643500DBD4B9 /* Group.swift in Sources */,
 				6D8B1CFA279F684C00DBD4B9 /* PersonDetailViewController.swift in Sources */,
+				6D617A1127A0CF830028164D /* PersonTableViewCell.swift in Sources */,
 				6D8B1CF6279F680100DBD4B9 /* GroupListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
