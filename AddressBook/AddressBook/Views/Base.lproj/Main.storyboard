@@ -93,6 +93,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iDZ-3T-QpT">
                                                     <rect key="frame" x="333" y="0.0" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="favoriteSwitchToggled:" destination="onK-g0-nW9" eventType="valueChanged" id="mGe-ne-zQL"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                         </stackView>
@@ -109,23 +112,23 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="personCell" id="4bT-UA-j4N" customClass="PersonTableViewCell" customModule="AddressBook" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="130.5" width="414" height="66.5"/>
+                                <rect key="frame" x="0.0" y="130.5" width="414" height="67"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4bT-UA-j4N" id="4kR-sM-vd4">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="66.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EMc-aj-YGy">
-                                            <rect key="frame" x="8" y="8" width="398" height="50.5"/>
+                                            <rect key="frame" x="8" y="8" width="398" height="51"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zva-Fl-toB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="51"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7I2-Rn-Q6k">
-                                                    <rect key="frame" x="351" y="0.0" width="47" height="50.5"/>
+                                                    <rect key="frame" x="351" y="0.0" width="47" height="51"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="star.fill" catalog="system"/>
                                                     <connections>
@@ -162,6 +165,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="favoriteSwitch" destination="iDZ-3T-QpT" id="Rmf-ue-bc0"/>
                         <outlet property="groupnameTextFIeld" destination="IHO-Cw-b0a" id="1g6-wc-BY3"/>
                     </connections>
                 </tableViewController>

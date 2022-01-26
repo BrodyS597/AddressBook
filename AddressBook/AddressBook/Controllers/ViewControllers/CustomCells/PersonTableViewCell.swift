@@ -38,7 +38,7 @@ class PersonTableViewCell: UITableViewCell {
         let favoriteImage = UIImage(systemName: favoriteImageName)
         favoriteButton.setImage(favoriteImage, for: .normal)
         favoriteButton.tintColor = unwrappedPerson.isFavorite ? .systemBlue : .systemYellow
-        PersonController.toggleIsFavorite(person: unwrappedPerson)
+        
     
     }
     

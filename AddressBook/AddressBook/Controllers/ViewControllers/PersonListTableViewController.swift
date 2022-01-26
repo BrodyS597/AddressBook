@@ -12,9 +12,19 @@ class PersonListTableViewController: UITableViewController {
     
     // MARK: - Properties
     var group: Group?
+
+    // MARK: - Computed Property
+    private var filteredPeople: [Person] {
+        if favoriteSwitch.isOn {
+            return group?.people.filter { $0.isFavorite } ?? []
+        } else {
+            return group?.people ?? []
+        }
+    }
     
     // MARK: -IBOutlets
     @IBOutlet weak var groupnameTextFIeld: UITextField!
+    @IBOutlet weak var favoriteSwitch: UISwitch!
     
     
     // MARK: - LifeCycle
@@ -40,6 +50,9 @@ class PersonListTableViewController: UITableViewController {
         
     }
     
+    @IBAction func favoriteSwitchToggled(_ sender: Any) {
+        tableView.reloadData()
+    }
     
     
     
@@ -50,7 +63,7 @@ class PersonListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
-        return group?.people.count ?? 0
+        return filteredPeople.count
     }
     
     
@@ -60,10 +73,10 @@ class PersonListTableViewController: UITableViewController {
         // Configure the cell...
         //You need to get the person from the array inorder to identify and display the (name) value
         //assigning the value of the specific person from a group of people that matches the index path.row of the current cell its about to display
-        let person = group?.people[indexPath.row]
         
         // setting the cell to the "textLabel"'s text value to the value of the (optional) person's name
-    
+        let person = filteredPeople[indexPath.row]
+        cell.person = person
         cell.delegate = self
         
         
